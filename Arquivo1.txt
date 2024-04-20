@@ -1,0 +1,265 @@
+
+Uma metatable em Lua é uma tabela especial que permite definir o comportamento de outra tabela de forma personalizada, proporcionando flexibilidade e controle sobre o comportamento de objetos em tempo de execução.
+
+Ao criar uma tabela em Lua, você pode associar outra tabela a ela como sua metatable. Essa metatable contém definições especiais para operações comuns, como adição, subtração, comparação, entre outras. Quando uma operação é realizada em uma tabela e Lua não encontra essa operação diretamente na tabela, ele verifica se a metatable associada contém uma definição para essa operação. Se sim, Lua usa essa definição da metatable.
+
+Por exemplo, pode-se definir uma função para ser chamada quando duas tabelas são somadas juntas, ou quando se tenta acessar uma chave que não existe em uma tabela.
+
+Para associar uma metatable a uma tabela, utiliza-se a função setmetatable(tabela, metatable), onde tabela é a tabela à qual você deseja associar a metatable e metatable é a tabela que contém as definições de comportamento.
+
+As metatables em Lua são tabelas normais, mas com chaves especiais que representam operações específicas. Por exemplo, a chave __add define o comportamento da adição entre duas tabelas, enquanto __index controla o acesso a chaves inexistentes.
+
+Elas são uma característica poderosa em Lua, permitindo a implementação de conceitos como herança, polimorfismo e operadores sobrecarregados. As metatables são amplamente utilizadas em bibliotecas e frameworks Lua para estender o comportamento das tabelas de forma flexível e modular.
+
+
+
+Chaves que tem na metatable:
+
+1. __add: Esta chave permite definir o comportamento da adição (+) entre duas tabelas. Quando duas tabelas são somadas e não existe uma definição direta na tabela, Lua verifica se a metatable associada contém uma função para lidar com essa operação.
+
+2.__sub: Semelhante ao __add, essa chave permite definir o comportamento da subtração (-) entre duas tabelas.
+
+3.__mul: Define o comportamento da multiplicação (*) entre duas tabelas.
+
+4.__div: Define o comportamento da divisão (/) entre duas tabelas.
+
+4.__mod: Define o comportamento do operador módulo (%) entre duas tabelas.
+
+5.__pow: Define o comportamento da exponenciação (^) entre duas tabelas.
+
+6.__unm: Define o comportamento do operador unário de negação (-) em uma tabela.
+
+7.__concat: Define o comportamento da concatenação (..) entre duas tabelas.
+
+8.__len: Define o comportamento do operador de comprimento (#) aplicado a uma tabela.
+
+9.__eq: Define o comportamento da comparação de igualdade (==) entre duas tabelas.
+
+10.__lt: Define o comportamento da comparação de "menor que" (<) entre duas tabelas.
+
+11.__le: Define o comportamento da comparação de "menor ou igual a" (<=) entre duas tabelas.
+
+12.__index: Essa chave é usada para implementar a funcionalidade de indexação em uma tabela. Se uma chave não existe na tabela, Lua procura na metatable associada para obter o valor correspondente.
+
+13.__newindex: Define o comportamento quando uma nova chave é atribuída a uma tabela. Se essa chave não existe na tabela, Lua verifica a metatable associada para saber como lidar com a atribuição.
+
+14.__call: Define o comportamento quando a tabela é chamada como uma função. Isso permite que você torne uma tabela "invocável", como se fosse uma função.
+
+15.__tostring: Define o comportamento de conversão de uma tabela para uma string, quando a função tostring() é aplicada à tabela.
+
+
+POO:
+
+
+Conceitos Fundamentais:
+
+   1 Classe:
+        Uma classe é uma estrutura que define o comportamento e as propriedades de um tipo de objeto. Ela serve como um modelo ou planta baixa para criar objetos.
+
+   2 Objeto:
+        Um objeto é uma instância de uma classe. Ele possui características (atributos) e comportamentos (métodos) definidos pela sua classe.
+
+   3 Instância:
+        Uma instância é um objeto específico criado a partir de uma classe. Cada instância possui seus próprios valores de atributos e pode realizar suas próprias chamadas de métodos.
+
+Valores e Comportamentos:
+
+   4 Atributos:
+        Atributos são características ou propriedades de um objeto que definem seu estado. Eles representam os dados que um objeto contém.
+
+   5 Método:
+        Um método é uma função associada a uma classe que define um comportamento específico para os objetos dessa classe. Os métodos operam nos atributos do objeto e podem alterar seu estado.
+
+Hierarquia e Organização:
+
+   6 Encapsulamento:
+        O encapsulamento é um princípio de programação orientada a objetos que sugere que os detalhes internos de uma classe devem ser ocultos e apenas as operações necessárias devem ser expostas. Isso ajuda a garantir a segurança e a consistência dos dados, além de facilitar a manutenção do código.
+
+Esses conceitos formam a base da programação orientada a objetos e são essenciais para compreender como as classes e objetos são estruturados e interagem entre si em um sistema orientado a objetos.
+
+
+Exemplos Ilustrativos:
+
+   1 Classe:
+        Exemplo: Classe "Carro"
+            Define atributos como cor, modelo e ano.
+            Define métodos como ligar(), desligar() e acelerar().
+
+   2 Objeto:
+        Exemplo: Objeto "MeuCarro"
+            É uma instância da classe "Carro" com valores específicos para cor, modelo e ano.
+
+   3 Instância:
+        Exemplo: Carro "MeuCarro"
+            Uma instância específica da classe "Carro", podendo ser um carro vermelho, modelo sedan, ano 2020.
+
+   4 Atributos:
+        Exemplo: Atributo "Cor"
+            Representa a cor do carro, podendo ser vermelho, azul, verde, etc.
+
+   5 Método:
+        Exemplo: Método "Acelerar()"
+            Um comportamento que aumenta a velocidade do carro quando chamado.
+
+Analogias:
+
+   6 Classe como Molde:
+        Analogia: Classe é como um molde de uma forma de bolo. Ele define como fazer um bolo (objeto), incluindo ingredientes (atributos) e passos de preparo (métodos).
+
+   7 Objeto como Instância:
+        Analogia: Objeto é como um bolo específico que foi feito usando o molde. Cada bolo pode ter diferentes ingredientes e aparência, assim como cada objeto pode ter diferentes valores de atributos.
+
+   8 Instância como Exemplar:
+        Analogia: Instância é como um exemplar de um livro. Todos os livros têm a mesma estrutura (classe), mas cada exemplar é único, com suas próprias páginas e conteúdo (atributos).
+
+   9 Atributos como Características:
+        Analogia: Atributos são como as características de uma pessoa, como altura, peso e cor dos olhos. Assim como diferentes pessoas têm diferentes características, diferentes objetos podem ter diferentes atributos.
+
+   10 Métodos como Ações:
+        Analogia: Métodos são como as ações que uma pessoa pode realizar, como andar, correr e pular. Assim como diferentes pessoas podem realizar diferentes ações, diferentes objetos podem ter diferentes métodos
+
+
+
+
+
+
+
+outros conceitos:
+
+
+
+
+Herança em Lua: -------------
+
+Definição:
+
+    Em Lua, não há suporte direto para herança de classes como em outras linguagens. No entanto, é possível implementar herança por meio do conceito de metatables e delegação de métodos.
+
+Funcionamento:
+
+    Uma tabela em Lua pode herdar comportamentos de outra tabela ao definir sua metatable para ser a tabela pai. Isso permite que a tabela filha acesse métodos e atributos da tabela pai como se fossem seus próprios.
+
+EXEMPLO!!:
+
+
+
+-- Tabela pai
+local Animal = {
+    fazerBarulho = function()
+        print("Barulho genérico de animal")
+    end
+}
+
+-- Tabela filha que herda de Animal
+local Cachorro = {
+    -- Delega chamadas de método para a tabela pai
+    fazerBarulho = function(self)
+        return self.super.fazerBarulho()
+    end,
+    -- Referência para a tabela pai
+    super = Animal
+}
+
+-- Criando um novo cachorro
+local meuCachorro = setmetatable({}, { __index = Cachorro })
+
+-- Chamando o método fazerBarulho
+meuCachorro:fazerBarulho() -- Saída: Barulho genérico de animal
+
+
+
+FIM DO EXEMPLO!!
+
+
+Polimorfismo em Lua: -------
+
+Definição:
+
+    Polimorfismo em Lua refere-se à capacidade de objetos diferentes responderem de maneiras distintas a uma mesma mensagem.
+
+Funcionamento:
+
+    Em Lua, isso pode ser alcançado através da sobrescrita de métodos em tabelas filhas, permitindo que elas substituam os métodos herdados por versões específicas.
+
+Exemplo!!!!!:
+
+
+
+-- Tabela pai
+local Animal = {
+    fazerBarulho = function()
+        print("Barulho genérico de animal")
+    end
+}
+
+-- Tabela filha com método específico
+local Cachorro = {
+    fazerBarulho = function()
+        print("Latido de cachorro")
+    end
+}
+
+-- Tabela filha com método específico
+local Gato = {
+    fazerBarulho = function()
+        print("Miado de gato")
+    end
+}
+
+-- Função para fazer barulho genérico de um animal
+local function fazerBarulhoDoAnimal(animal)
+    animal:fazerBarulho()
+end
+
+-- Chamando os métodos específicos de cada animal
+fazerBarulhoDoAnimal(Cachorro) -- Saída: Latido de cachorro
+fazerBarulhoDoAnimal(Gato)     -- Saída: Miado de gato
+
+
+FIM DO EXEMPLO!!!!
+
+Abstração em Lua:
+
+Definição:
+
+    Em Lua, a abstração envolve o processo de criar tabelas que representam entidades do mundo real, encapsulando dados e comportamentos relacionados.
+
+Funcionamento:
+
+    Em Lua, podemos criar tabelas que representam objetos ou conceitos do mundo real, definindo métodos e atributos relevantes para esses objetos.
+
+Exemplo!!!!!!!:
+
+
+
+-- Tabela representando um animal
+local Animal = {
+    nome = "",
+    som = "",
+    emitirSom = function(self)
+        print(self.nome .. " faz " .. self.som)
+    end
+}
+
+-- Criando instâncias específicas
+local cachorro = {
+    nome = "Cachorro",
+    som = "au au"
+}
+local gato = {
+    nome = "Gato",
+    som = "miau"
+}
+
+-- Adicionando a função emitirSom à instância
+cachorro.emitirSom = Animal.emitirSom
+gato.emitirSom = Animal.emitirSom
+
+-- Chamando o método emitirSom
+cachorro:emitirSom() -- Saída: Cachorro faz au au
+gato:emitirSom()     -- Saída: Gato faz miau
+
+
+
+
+FIM DO EXEMPLO!!!!!!!
